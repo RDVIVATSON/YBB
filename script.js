@@ -30,19 +30,32 @@ function callNumber(column, number) {
     const button = document.querySelector(`button[data-column="${column}"][data-number="${number}"]`);
 
     if (button) {
-        if (calledNumbers.includes(calledNumber)) {
-            calledNumbers = calledNumbers.filter(num => num !== calledNumber);
+        if (button.classList.contains('flash')) {
+            button.classList.remove('flash');
             button.classList.remove('called');
             button.style.backgroundColor = '';
             button.style.color = '';
+            calledNumbers = calledNumbers.filter(num => num !== calledNumber);
+            if (calledNumbers.length > 0) {
+                const lastCalled = calledNumbers[calledNumbers.length - 1];
+                const lastButton = document.querySelector(`button[data-column="${lastCalled[0]}"][data-number="${lastCalled.slice(1)}"]`);
+                if (lastButton) {
+                    lastButton.classList.add('flash');
+                }
+            }
         } else {
             calledNumbers.push(calledNumber);
-            if (calledNumbers.length > 3) {
-                calledNumbers.shift();
+            if (calledNumbers.length > 1) {
+                const previousCalled = calledNumbers[calledNumbers.length - 2];
+                const previousButton = document.querySelector(`button[data-column="${previousCalled[0]}"][data-number="${previousCalled.slice(1)}"]`);
+                if (previousButton) {
+                    previousButton.classList.remove('flash');
+                    previousButton.classList.add('called');
+                    previousButton.style.backgroundColor = 'red';
+                    previousButton.style.color = 'white';
+                }
             }
-            button.classList.add('called');
-            button.style.backgroundColor = 'red';
-            button.style.color = 'white';
+            button.classList.add('flash');
         }
         updateLastNumber(calledNumber);
     } else {
@@ -62,7 +75,7 @@ function resetBoard() {
         const numberButtons = document.querySelectorAll('.bingo-column button');
         
         numberButtons.forEach(button => {
-            button.classList.remove('called');
+            button.classList.remove('called', 'flash');
             button.style.backgroundColor = '';
             button.style.color = '';
         });
@@ -93,7 +106,7 @@ function displayPattern() {
         case 'Hi':
             imagePath = 'images/BingoHI.gif'; // Path to the letter X image
             break;
-			case 'Crown':
+        case 'Crown':
             imagePath = 'images/BingoCrown.gif'; // Path to the letter T image
             break;
         case 'large-diamond':

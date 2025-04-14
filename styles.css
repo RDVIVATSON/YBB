@@ -136,3 +136,14 @@ button.reset {
     padding: 10px 20px;
     cursor: pointer;
 }
+
+/* Flashing effect */
+@keyframes flash {
+    0% { background-color: red; color: white; }
+    50% { background-color: white; color: red; }
+    100% { background-color: red; color: white; }
+}
+
+.flash {
+    animation: flash 1s infinite;
+}
