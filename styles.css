@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.frame {
+    width: 1920px; /* 1080p width */
+    height: 1080px; /* 1080p height */
+    border: 5px solid #000; /* Border around the frame */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%; /* Adjust width to fit within frame */
+    height: 100%; /* Adjust height to fit within frame */
+    text-align: Center;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: auto 1fr auto;
+    gap: 20px;
+    height: 100%;
+}
+
+.bingo-board {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: row; /* Arrange columns in a row */
+    flex-wrap: wrap;
+    grid-column: 1 / 2;
+    grid-row: 1 / 4;
+}
+
+.bingo-column {
+    display: flex;
+    flex-direction: column;
+    margin: 0 5px;
+}
+
+.sub-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.bingo-column h2 {
+    margin-bottom: 10px;
+    font-size: 40px;
+}
+
+.bingo-column button {
+    width: 195px; /* Adjusted width to fit within screen */
+    height: 50px; /* Adjusted height to fit within screen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000;
+    margin-bottom: 5px;
+    cursor: pointer;
+    font-size: 36px; /* Adjusted font size to fit within screen */
+}
+
+.bingo-column button.called {
+    background-color: red;
+    color: white;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    grid-column: 2 / 3;
+    grid-row: 1 / 4;
+}
+
+.pattern-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+select {
+    font-size: 24px;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+#pattern-display {
+    width: 320px; /* Adjust width as needed */
+    height: 320px; /* Adjust height as needed */
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pattern-image {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.last-number {
+    font-size: 36px;
+    border: 1px solid #000;
+    padding: 10px;
+    width: 320px;
+    margin-bottom: 20px;
+}
+
+button.reset {
+    font-size: 24px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
