@@ -7,60 +7,63 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="container">
+        <h1>Yella Beak BINGO!</h1>
+    </div>
     <div class="frame">
-        <div class="container">
-            <div class="content">
-                <div class="bingo-board">
-                    <div class="bingo-column" id="B">
-                        <h2>B</h2>
-                        <div class="sub-column" id="B1"></div>
-                        <div class="sub-column" id="B2"></div>
-                    </div>
-                    <div class="bingo-column" id="I">
-                        <h2>I</h2>
-                        <div class="sub-column" id="I1"></div>
-                        <div class="sub-column" id="I2"></div>
-                    </div>
-                    <div class="bingo-column" id="N">
-                        <h2>N</h2>
-                        <div class="sub-column" id="N1"></div>
-                        <div class="sub-column" id="N2"></div>
-                    </div>
-                    <div class="bingo-column" id="G">
-                        <h2>G</h2>
-                        <div class="sub-column" id="G1"></div>
-                        <div class="sub-column" id="G2"></div>
-                    </div>
-                    <div class="bingo-column" id="O">
-                        <h2>O</h2>
-                        <div class="sub-column" id="O1"></div>
-                        <div class="sub-column" id="O2"></div>
-                    </div>
-                </div>
-                <div class="sidebar">
-                    <div class="pattern-display">
-                        <label for="patterns">Select Bingo Pattern:</label>
-                        <select id="patterns" onchange="displayPattern()">
-                            <option value="straight-line">Straight Line</option>
-                            <option value="four-corners">Four Corners</option>
-                            <option value="full-house">Blackout</option>
-                            <option value="Chair">Chair</option>
-                            <option value="Hi">Hi</option>
-                            <option value="Crown">Crown</option>
-                            <option value="large-diamond">Large Diamond</option>
-                            <option value="small-diamond-house">Small Diamond</option>
-                        </select>
-                        <div id="pattern-display">
-                            <img id="pattern-image" src="" alt="Bingo Pattern" style="display: none;">
-                        </div>
-                    </div>
-                    <div class="last-number">
-                        <p id="lastNumber"> </p>
-                    </div>
-                    <button class="reset" onclick="resetBoard()">Reset Board</button>
-                </div>
+        <div class="bingo-board">
+            <div class="bingo-column" id="B">
+                <h2>B</h2>
+                <div class="sub-column" id="B1"></div>
+                <div class="sub-column" id="B2"></div>
+            </div>
+            <div class="bingo-column" id="I">
+                <h2>I</h2>
+                <div class="sub-column" id="I1"></div>
+                <div class="sub-column" id="I2"></div>
+            </div>
+            <div class="bingo-column" id="N">
+                <h2>N</h2>
+                <div class="sub-column" id="N1"></div>
+                <div class="sub-column" id="N2"></div>
+            </div>
+            <div class="bingo-column" id="G">
+                <h2>G</h2>
+                <div class="sub-column" id="G1"></div>
+                <div class="sub-column" id="G2"></div>
+            </div>
+            <div class="bingo-column" id="O">
+                <h2>O</h2>
+                <div class="sub-column" id="O1"></div>
+                <div class="sub-column" id="O2"></div>
             </div>
         </div>
+        <div class="sidebar">
+    <div class="pattern-display">
+        <label for="patterns">Bingo Pattern:</label>
+        <select id="patterns" onchange="displayPattern()">
+            <option value="straight-line">Straight Line</option>
+            <option value="four-corners">Four Corners</option>
+            <option value="full-house">Blackout</option>
+            <option value="Chair">Chair</option>
+            <option value="Hi">Hi</option>
+            <option value="Crown">Crown</option>
+            <option value="large-diamond">Large Diamond</option>
+            <option value="small-diamond-house">Small Diamond</option>
+        </select>
+        <div id="pattern-display" class="pattern-box">
+            <img id="pattern-image" src="" alt="Bingo Pattern" style="display: none;">
+        </div>
+    </div>
+	<!-- Prime Rib Ball Section in Sidebar -->
+<div class="prime-rib-section">
+    <p id="primeRibBall">Prime Rib Ball: None</p>
+</div>
+    <div class="last-number">
+        <p id="lastNumber">Last number</p>
+    </div>
+    <button class="reset" onclick="resetBoard()">Reset Board</button>
+</div>
     </div>
     <script src="script.js"></script>
 </body>
