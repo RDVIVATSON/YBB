@@ -35,8 +35,8 @@ function displayPattern() {
         "straight-line": "images/straight-line.jpg",
         "four-corners": "images/Bingo4C.gif",
         "full-house": "images/BingoBlackOut.gif",
-        "Chair": "images/Bingochair.gif",
-        "Hi": "images/Bingohi.gif",
+        "Chair": "images/BingoChair.gif",
+        "Hi": "images/BingoHi.gif",
         "Crown": "images/Bingocrown.gif",
         "large-diamond": "images/BingoLargeDiamond.gif",
         "small-diamond-house": "images/BingoSmallDiamond.gif"
