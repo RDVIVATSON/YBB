@@ -30,23 +30,67 @@ function displayPattern() {
     const patternSelect = document.getElementById("patterns");
     const patternImage = document.getElementById("pattern-image");
 
-    // Map pattern names to image file paths
+    // Map pattern names to image file paths (all lowercase)
     const patternMap = {
-        "straight-line": "images/straight-line.jpg",
-        "four-corners": "images/Bingo4C.gif",
-        "full-house": "images/BingoBlackOut.gif",
-        "Chair": "images/BingoChair.gif",
-        "Hi": "images/BingoHi.gif",
-        "Crown": "images/Bingocrown.gif",
-        "large-diamond": "images/BingoLargeDiamond.gif",
-        "small-diamond-house": "images/BingoSmallDiamond.gif"
+        "straight-line": "images/regular4c.gif",
+        "four-corners": "images/fourcorners.gif",
+        "full-house": "images/blackout.gif",
+        "chair": "images/chair.gif",
+        "hi": "images/hi.gif",
+        "crown": "images/crown.gif",
+        "large-diamond": "images/largediamond.gif",
+        "small-diamond-house": "images/smalldiamond.gif",
+        "airplane": "images/airplane.gif",
+        "alien": "images/alien.gif",
+        "bag": "images/bag.gif",
+        "barbell": "images/barbell.gif",
+        "baseball-diamond": "images/baseballdiamond.gif",
+        "basket": "images/basket.gif",
+        "bird": "images/bird.gif",
+        "bowtie": "images/bowtie.gif",
+        "candlestick": "images/candlestick.gif",
+        "champaine-glass": "images/champagneglass.gif",
+        "checkmark": "images/checkmark.gif",
+        "daisy": "images/daisy.gif",
+        "dog": "images/dog.gif",
+        "dollar-sign": "images/dollarsign.gif",
+        "double-plus": "images/doubleplus.gif",
+        "duck": "images/duck.gif",
+        "fish-hook": "images/fishhook.gif",
+        "flag": "images/flag.gif",
+        "fox": "images/fox.gif",
+        "gift-bag": "images/giftbag.gif",
+        "hat": "images/hat.gif",
+        "house": "images/house.gif",
+        "icicles": "images/icicles.gif",
+        "ladder": "images/ladder.gif",
+        "light": "images/light.gif",
+        "lobster": "images/lobster.gif",
+        "maple-leaf": "images/mapleleaf.gif",
+        "mask": "images/mask.gif",
+        "mushroom": "images/mushroom.gif",
+        "music-note": "images/musicnote.gif",
+        "parade-route": "images/paraderoute.gif",
+        "pinwheel": "images/pinwheel.gif",
+        "quinella": "images/quinella.gif",
+        "raindrop": "images/raindrop.gif",
+        "rectangle": "images/rectangle.gif",
+        "table": "images/table.gif",
+        "thunderbird": "images/thunderbird.gif",
+        "tictactoe": "images/tictactoe.gif",
+        "torch": "images/torch.gif",
+        "tulip": "images/tulip.gif",
+        "umbrella": "images/umbrella.gif",
+        "windmill": "images/windmill.gif",
+        "window-pane": "images/windowpane.gif",
+        "wineglass": "images/wineglass.gif"
     };
 
-    // Get selected pattern and update image
     const selectedPattern = patternSelect.value;
     patternImage.src = patternMap[selectedPattern] || ""; // Set image source
-    patternImage.style.display = patternMap[selectedPattern] ? "block" : "none"; // Show only if an image exists
+    patternImage.style.display = patternMap[selectedPattern] ? "block" : "none"; // Show image only if it exists
 }
+
 
 function callNumber(column, number) {
     const calledNumber = column + number;
