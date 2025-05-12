@@ -91,21 +91,15 @@ h1 {
 .bingo-column button {
     width: 175%;
     height: 100%;
-    font-size: 2.5vw;
+    font-size: 2.2vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 3px solid black; /* Thicker border for better visibility */
+    border: 2.5px solid #000;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    background-color: #f8f8f8; /* Light background for clarity */
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); /* Add depth */
 }
-/* Button Hover Effect */
-.bingo-column button:hover {
-    background-color: #ffcc00; /* Highlight on hover */
-    transform: scale(1.1); /* Slightly enlarge when hovered */
-}
+
 .bingo-column button.called {
     background-color: red;
     color: white;
