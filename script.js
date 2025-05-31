@@ -46,7 +46,7 @@ function displayPattern() {
         "bib": "images/bib.gif",
         "bikinitop": "images/bikiniTop.gif",
         "bird": "images/bird.gif",
-        "block9': "images/block9.gif",
+        "block9": "images/block9.gif",
         "bowtie": "images/bowtie.gif",
         "campertrailer": "images/campertrailer.gif",
         "candlestick": "images/candlestick.gif",
