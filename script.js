@@ -86,7 +86,6 @@ function displayPattern() {
         "parade-route": "images/paradrRoute.gif",
         "pin": "images/pin.gif",
         "pinwheel": "images/pinwheel.gif",
-        "quinella": "images/quinella.gif",
         "raindrop": "images/raindrop.gif",
         "readytokiss": "images/readytokiss.gif",
         "rectangle": "images/rectangle.gif",
