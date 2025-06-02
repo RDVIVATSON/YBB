@@ -83,7 +83,7 @@ function displayPattern() {
         "mask": "images/mask.gif",
         "mushroom": "images/mushroom.gif",
         "music-note": "images/musicnote.gif",
-        "parade-route": "images/paradrRoute.gif",
+        "parade-route": "images/paradeRoute.gif",
         "pin": "images/pin.gif",
         "pinwheel": "images/pinwheel.gif",
         "raindrop": "images/raindrop.gif",
