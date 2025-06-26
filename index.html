@@ -10,53 +10,55 @@
     <div class="container">
         <h1>Yella Beak BINGO!</h1>
     </div>
-    <div class="frame">
+		<div class="frame">
         <div class="bingo-board">
-            <div class="bingo-column" id="B">
-                <h2>B</h2>
-                <div class="sub-column" id="B1"></div>
-                <div class="sub-column" id="B2"></div>
-            </div>
-            <div class="bingo-column" id="I">
-                <h2>I</h2>
-                <div class="sub-column" id="I1"></div>
-                <div class="sub-column" id="I2"></div>
-            </div>
-            <div class="bingo-column" id="N">
-                <h2>N</h2>
-                <div class="sub-column" id="N1"></div>
-                <div class="sub-column" id="N2"></div>
-            </div>
-            <div class="bingo-column" id="G">
-                <h2>G</h2>
-                <div class="sub-column" id="G1"></div>
-                <div class="sub-column" id="G2"></div>
-            </div>
-            <div class="bingo-column" id="O">
-                <h2>O</h2>
-                <div class="sub-column" id="O1"></div>
-                <div class="sub-column" id="O2"></div>
-            </div>
-        </div>
+		<div class="bingo-column" id="B">
+			<h2>B</h2>
+        <div class="sub-column" id="B1"></div>
+        <div class="sub-column" id="B2"></div>
+    </div>
+    <div class="bingo-column" id="I">
+			<h2>I</h2>
+        <div class="sub-column" id="I1"></div>
+        <div class="sub-column" id="I2"></div>
+    </div>
+    <div class="bingo-column" id="N">
+			<h2>N</h2>
+        <div class="sub-column" id="N1"></div>
+        <div class="sub-column" id="N2"></div>
+    </div>
+    <div class="bingo-column" id="G">
+			<h2>G</h2>
+        <div class="sub-column" id="G1"></div>
+        <div class="sub-column" id="G2"></div>
+    </div>
+    <div class="bingo-column" id="O">
+			<h2>O</h2>
+        <div class="sub-column" id="O1"></div>
+        <div class="sub-column" id="O2"></div>
+    </div>
+</div>
         <div class="sidebar">
     <div class="pattern-display">
         <label for="patterns">Bingo Pattern:</label>
         <select id="patterns" onchange="displayPattern()">
-            <option value="straight-line">Regular-4C</option>
+            <option value="regular4c">Regular-4C</option>
             <option value="four-corners">Four Corners</option>
-            <option value="full-house">Blackout</option>            
+            <option value="blackout">Blackout</option>            
             <option value="airplane">Airplane</option>
 			<option value="alien">alien</option>
+			<option value="ambersand">Ambersand</option>
 			<option value="ant">Ant</option>
 			<option value="appletree">Apple Tree</option>
+			<option value="ant">Ant</option
+			<option value="astrisk">Astrisk</option>
 			<option value="bag">bag</option>
 			<option value="barbell">barbell</option>
 			<option value="baseball-diamond">Baseball Diamond</option>
 			<option value="basket">Basket</option>
 			<option value="bib">Bib</option>
-			<option value="bikinitop">Bikini Top</option>
 			<option value="bird">Bird</option>
-			<option value="block9">Block of 9</option>
+			<option value="Block9">Block of 9</option
 			<option value="bowtie">Bowtie</option>
 			<option value="campertrailer">Camper Trailer</option>
 			<option value="candlestick">Candlestick</option>
@@ -75,16 +77,50 @@
 			<option value="doublel">Double L</option>
 			<option value="double-plus">Double Plus</option>
 			<option value="duck">Duck</option>
+			<option value="eyeball">Eye Ball</option>
+			<option value="fireplace">Fireplace</option>
 			<option value="fish-hook">Fish Hook</option>
 			<option value="flag">Flag</option>
+			<option value="foursquare">Four Square</option>
 			<option value="fox">Fox</option>
+			<option value="fullmoon">Full Moon</option>
 			<option value="gift-bag">Gift Bag</option>
+			<option value="grapes">Grape</option>
+			<option value="halfmoon">Half Moon</option>
 			<option value="hat">Hat</option>
+			<option value="headstone">Headstone</option>
 			<option value="hi">Hi</option>
+			<option value="hotcocoa">Hot Cocoa</option>
 			<option value="house">House</option>
 			<option value="icicles">Icicles</option>
 			<option value="ladder">Ladder</option>
 			<option value="large-diamond">Large Diamond</option>
+			<option value="lettera">Letter A</option>
+			<option value="letterb">Letter B</option>
+			<option value="letterc">Letter C</option>
+			<option value="letterd">Letter D</option>
+			<option value="lettere">Letter E</option>
+			<option value="letterf">Letter F</option>
+			<option value="letterg">Letter G</option>
+			<option value="letterh">Letter H</option>
+			<option value="letteri">Letter I</option>
+			<option value="letterj">Letter J</option>
+			<option value="letterk">Letter K</option>
+			<option value="letterl">Letter L</option>
+			<option value="letterm">Letter M</option>
+			<option value="lettern">Letter N</option>
+			<option value="lettero">Letter O</option>
+			<option value="letterp">Letter P</option>
+			<option value="letterq">Letter Q</option>
+			<option value="letterr">Letter R</option>
+			<option value="letters">Letter S</option>
+			<option value="lettert">Letter T</option>
+			<option value="letteru">Letter U</option>
+			<option value="letterv">Letter V</option>
+			<option value="letterw">Letter W</option>
+			<option value="letterx">Letter X</option>
+			<option value="lettery">Letter Y</option>
+			<option value="letterz">Letter Z</option>
 			<option value="light">Light</option>
 			<option value="lobster">Lobster</option>
 			<option value="loveletter">Love Letter</option>
@@ -93,27 +129,62 @@
 			<option value="mask">Mask</option>
 			<option value="mushroom">Mushroom</option>
 			<option value="music-note">Music Note</option>
+			<option value="number0">Number 0</option>
+			<option value="number1">Number 1</option>
+			<option value="number2">Number 2</option>
+			<option value="number3">Number 3</option>
+			<option value="number4">Number 4</option>
+			<option value="number5">Number 5</option>
+			<option value="number6">Number 6</option>
+			<option value="number7">Number 7</option>
+			<option value="number8">Number 8</option>
+			<option value="number9">Number 9</option>
+			<option value="number10">Number 10</option>
+			<option value="number11">Number 11</option>
+			<option value="number12">Number 12</option>
+			<option value="number13">Number 13</option>
+			<option value="number14">Number 14</option>
+			<option value="number15">Number 15</option>
+			<option value="number16">Number 16</option>
+			<option value="number17">Number 17</option>
+			<option value="number18">Number 18</option>
+			<option value="number19">Number 19</option>
+			<option value="owl">Owl</option>
 			<option value="parade-route">Parade Route</option>
 			<option value="pin">Pin</option>
 			<option value="pinwheel">Pinwheel</option>
+			<option value="rainboat">Rain Boat</option>
 			<option value="raindrop">Rain Drop</option>
+			<option value="rake">Rake</option>
 			<option value="readytokiss">Ready to Kiss</option>
 			<option value="rectangle">Rectangle</option>
+			<option value="reindeer">Reindeer</option>
+			<option value="sailboat">Sailboat</option>
 			<option value="shorts">Shorts</option>
+			<option value="shark">Shark</option>
+			<option value="sign">Sign</option>
+			<option value="skiis">Skiis</option>
+			<option value="skull">Skull</option>
 			<option value="smallc">Small C</option>
-			<option value="small-diamond-house">Small Diamond</option>
+			<option value="small-diamond">Small Diamond</option>
 			<option value="smalle">Small E</option>
 			<option value="snorkel">Snorkel</option>
+			<option value="snowmobile">Snowmobile</option>
+			<option value="spiderweb">Spider Web</option>
+			<option value="sweater">Sweater</option>
 			<option value="table">Table</option>
 			<option value="thunderbird">Thunderbird</option>
 			<option value="tictactoe">Tic Tac Toe</option>
 			<option value="topv">Top V</option>
 			<option value="torch">Torch</option>
+			<option value="tornado">Tornado</option>
 			<option value="train">Train</option>
 			<option value="trophy">Trophy</option>
 			<option value="tulip">Tulip</option>
 			<option value="umbrella">Umbrella</option>
 			<option value="upsidedownt">Upsidedown T</option>
+			<option value="vampire">Vampire</option>
+			<option value="wasp">Wasp</option>
 			<option value="windmill">Windmill</option>
 			<option value="window-pane">Window Pane</option>
 			<option value="windowshade">Window Shade</option>
