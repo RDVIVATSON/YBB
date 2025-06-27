@@ -74,7 +74,7 @@ function displayPattern() {
         "fox": "images/fox.gif",
 		"fullmoon": "images/fullmoon.gif",
         "giftbag": "images/giftbag.gif",
-		"grape": "images/grape.gif",
+		"grapes": "images/grape.gif",
 		"halfmoon": "images/halfmoon.gif",
         "hat": "images/hat.gif",
 		"headstone": "images/headstone.gif",
