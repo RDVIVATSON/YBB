@@ -29,10 +29,22 @@ function createBingoBoard() {
 function displayPattern() {
     const patternSelect = document.getElementById("patterns");
     const patternImage = document.getElementById("pattern-image");
-    const selectedPattern = patternSelect.value.toLowerCase();
-    patternImage.src = patternMap[selectedPattern] || "";
-    patternImage.style.display = patternMap[selectedPattern] ? "block" : "none";
+    const selectedPattern = patternSelect.value;
+
+    // Dynamically build the image path
+    const imagePath = `images/${selectedPattern}.gif`;
+
+    // Check if the image exists by attempting to load it
+    patternImage.onerror = () => {
+        patternImage.style.display = "none";
+    };
+    patternImage.onload = () => {
+        patternImage.style.display = "block";
+    };
+
+    patternImage.src = imagePath;
 }
+
 
 function callNumber(column, number) {
     const button = document.querySelector(`button[data-column="${column}"][data-number="${number}"]`);
