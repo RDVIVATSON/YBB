@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yella Beak BINGO!</title>
-    <link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -43,27 +43,29 @@
         <label for="patterns">Bingo Pattern:</label>
         <select id="patterns" onchange="displayPattern()">
             <option value="regular4c">Regular-4C</option>
-            <option value="fourcorners">Four Corners</option>
+            <option value="four-corners">Four Corners</option>
             <option value="blackout">Blackout</option>            
             <option value="airplane">Airplane</option>
 			<option value="alien">alien</option>
+			<option value="ambersand">Ambersand</option>
 			<option value="ant">Ant</option>
 			<option value="appletree">Apple Tree</option>
-			<option value="ant">Ant</option
+			<option value="ant">Ant</option>
 			<option value="astrisk">Astrisk</option>
 			<option value="bag">bag</option>
 			<option value="barbell">barbell</option>
-			<option value="baseballdiamond">Baseball Diamond</option>
+			<option value="baseball-diamond">Baseball Diamond</option>
 			<option value="basket">Basket</option>
 			<option value="bib">Bib</option>
 			<option value="bird">Bird</option>
-			<option value="block9">Block of 9</option
+			<option value="Block9">Block of 9</option>
 			<option value="bowtie">Bowtie</option>
 			<option value="campertrailer">Camper Trailer</option>
 			<option value="candlestick">Candlestick</option>
+			<option value="candelabra">Candelabra</option>
 			<option value="chair">Chair</option>
 			<option value="car">Car</option>
-			<option value="champaineglass">Champaine Glass</option>
+			<option value="champaine-glass">Champaine Glass</option>
 			<option value="checkmark">Checkmark</option>
 			<option value="crazyc">Crazy C</option>
 			<option value="crazyh">Crazy H</option>
@@ -71,19 +73,19 @@
 			<option value="crazyl">Crazy L</option>
 			<option value="crown">Crown</option>
 			<option value="daisy">Daisy</option>
-			<option value="dog">Ben the Dog</option>
-			<option value="dollarsign">Dollar Sign</option>
+			<option value="dog">Dog</option>
+			<option value="dollar-sign">Dollar Sign</option>
 			<option value="doublel">Double L</option>
-			<option value="doubleplus">Double Plus</option>
+			<option value="double-plus">Double Plus</option>
 			<option value="duck">Duck</option>
 			<option value="eyeball">Eye Ball</option>
 			<option value="fireplace">Fireplace</option>
-			<option value="fishhook">Fish Hook</option>
+			<option value="fish-hook">Fish Hook</option>
 			<option value="flag">Flag</option>
 			<option value="foursquare">Four Square</option>
 			<option value="fox">Fox</option>
 			<option value="fullmoon">Full Moon</option>
-			<option value="giftbag">Gift Bag</option>
+			<option value="gift-bag">Gift Bag</option>
 			<option value="grapes">Grape</option>
 			<option value="halfmoon">Half Moon</option>
 			<option value="hat">Hat</option>
@@ -93,7 +95,7 @@
 			<option value="house">House</option>
 			<option value="icicles">Icicles</option>
 			<option value="ladder">Ladder</option>
-			<option value="largediamond">Large Diamond</option>
+			<option value="large-diamond">Large Diamond</option>
 			<option value="lettera">Letter A</option>
 			<option value="letterb">Letter B</option>
 			<option value="letterc">Letter C</option>
@@ -123,11 +125,11 @@
 			<option value="light">Light</option>
 			<option value="lobster">Lobster</option>
 			<option value="loveletter">Love Letter</option>
-			<option value="mapleleaf">Maple Leaf</option>
+			<option value="maple-leaf">Maple Leaf</option>
 			<option value="motorcycle">Motorcycle</option>
 			<option value="mask">Mask</option>
 			<option value="mushroom">Mushroom</option>
-			<option value="musicnote">Music Note</option>
+			<option value="music-note">Music Note</option>
 			<option value="number0">Number 0</option>
 			<option value="number1">Number 1</option>
 			<option value="number2">Number 2</option>
@@ -149,7 +151,7 @@
 			<option value="number18">Number 18</option>
 			<option value="number19">Number 19</option>
 			<option value="owl">Owl</option>
-			<option value="paraderoute">Parade Route</option>
+			<option value="parade-route">Parade Route</option>
 			<option value="pin">Pin</option>
 			<option value="pinwheel">Pinwheel</option>
 			<option value="rainboat">Rain Boat</option>
@@ -165,7 +167,7 @@
 			<option value="skiis">Skiis</option>
 			<option value="skull">Skull</option>
 			<option value="smallc">Small C</option>
-			<option value="smalldiamond">Small Diamond</option>
+			<option value="small-diamond">Small Diamond</option>
 			<option value="smalle">Small E</option>
 			<option value="snorkel">Snorkel</option>
 			<option value="snowmobile">Snowmobile</option>
@@ -185,7 +187,7 @@
 			<option value="vampire">Vampire</option>
 			<option value="wasp">Wasp</option>
 			<option value="windmill">Windmill</option>
-			<option value="windowpane">Window Pane</option>
+			<option value="window-pane">Window Pane</option>
 			<option value="windowshade">Window Shade</option>
 			<option value="wineglass">Wine Glass</option>
 			<option value="worm">Worm</option>
@@ -195,16 +197,30 @@
         </div>
     </div>
 	<!-- Prime Rib Ball Section in Sidebar -->
+<div class="prime-rib-toggle">
+  <label class="toggle-label">
+    <input type="checkbox" id="enablePrimeRib" checked>
+    <span class="toggle-slider"></span>
+    <span class="toggle-text">Enable Prime Rib Ball</span>
+  </label>
+</div>
+
 <div class="prime-rib-section">
-    <p id="primeRibBall">Prime Rib Ball:</p>
+  <p id="primeRibBall">Prime Rib Ball: None</p>
 </div>
-    <div class="last-number">
-        <p id="lastNumber">Last number:</p>
-    </div>
-    <button class="reset" onclick="resetBoard()">Reset Board</button>
+
+<div class="last-number">
+  <p id="lastNumber">Last number:</p>
 </div>
+
+<div class="bottom-controls">
+  <div id="ballCounter">Balls Called: 0</div>
+  <button class="reset" onclick="resetBoard()">Reset Board</button>
+</div>
+
+
     </div>
     <script src="script.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 </body>
 </html>
-

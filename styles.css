@@ -5,14 +5,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f0f0f0; /* Neutral background outside the frame */
+    background-color: #f0f0f0;
 }
 
 /* Container (Header) */
 .container {
     width: 100%;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white for contrast */
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 5px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -28,13 +28,13 @@ h1 {
     height: 90vh;
     border: 3px solid #000;
     display: grid;
-    grid-template-columns: 70% 30%; /* Bingo board 70%, sidebar 30% */
+    grid-template-columns: 70% 30%;
     gap: 5px;
     overflow: hidden;
     position: relative;
 }
 
-/* Pseudo-element for Background Image */
+/* Background Image */
 .frame::before {
     content: '';
     position: absolute;
@@ -47,7 +47,7 @@ h1 {
     z-index: 0;
 }
 
-/* Ensure content appears above the background */
+/* Ensure content appears above background */
 .bingo-board, .sidebar {
     position: relative;
     z-index: 1;
@@ -62,9 +62,9 @@ h1 {
     height: 100%;
     align-items: stretch;
 }
-/* Ensures all B column buttons have the same width */
+
 .bingo-column#B button {
-    width: 110px; /* Adjust as needed */
+    width: 110px;
 }
 
 .bingo-column {
@@ -109,7 +109,7 @@ h1 {
 .sidebar {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Distributes items more evenly */
+    justify-content: space-between;
     align-items: center;
     padding: 10px;
     height: 100%;
@@ -119,17 +119,17 @@ h1 {
     z-index: 1;
 }
 
-/* Pattern Box: Full Width & Square */
+/* Pattern Box */
 .pattern-box {
-    width: 100%; /* Occupies full sidebar width */
-    height: 100%; /* Adjust based on available space */
-    aspect-ratio: 1 / 1; /* Ensures a square shape */
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
     border: 5px solid #000;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.9);
-    margin: 10px 0; /* Adds spacing around it */
+    margin: 10px 0;
     position: relative;
     z-index: 2;
 }
@@ -139,46 +139,48 @@ h1 {
     max-height: 100%;
 }
 
-/* Last Number & Reset Button Spacing */
+/* Last Number & Reset Button */
 .last-number {
-    font-size: 2.5vw; /* Increase this for larger text */
+    font-size: 2.5vw;
     padding: 10px;
     font-weight: bold;
     text-align: center;
-    
 }
 
-button.reset {
-    font-size: 1vw; /* Add this to increase Reset button text */
+.bottom-controls {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    gap: 10px;
+}
+
+.bottom-controls #ballCounter {
+    font-size: 1vw;
+    font-weight: bold;
+    text-align: left;
+    flex: 1;
+}
+
+.bottom-controls .reset {
+    font-size: 1vw;
     padding: 10px;
     cursor: pointer;
-    width: 15%;
-    text-align: center;
-}
-
-/* Prime Rib Ball Section Styling */
-.prime-rib-section {
-    font-size: 2vw; /* Increase font size */
-    padding: 20px; /* Add more spacing */
-    text-align: center;
-    font-weight: bold;
-    width: 50%;
-    border-radius: 10px; /* Add rounded corners */
-}
-
-
-
+    width: auto;
+    flex-shrink: 0;
 }
 /* Prime Rib Ball Section */
 .prime-rib-section {
-    font-size: 3vw;
+    font-size: 2.5vw;
     padding: 10px;
     border: 2px solid gold;
     text-align: center;
-    background-color: rgba(255, 215, 0, 0.8); /* Gold background */
+    background-color: transparent;
     font-weight: bold;
+    border-radius: 10px;
+    width: 50%;
 }
-
 
 /* Flashing Effect */
 .flashing {
@@ -190,20 +192,52 @@ button.reset {
     100% { background-color: red; color: white; }
 }
 
+/* Wildcard Banner */
+.wildcard-banner {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: gold;
+    color: black;
+    font-size: 3vw;
+    padding: 20px;
+    border: 3px solid red;
+    border-radius: 15px;
+    z-index: 9999;
+    animation: pulse 1s infinite;
+    font-family: 'Permanent Marker', cursive;
+}
 
-/* Media Queries */
+/* Spray Burst Animation */
+.graffiti-spray {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle at center, #ff0 0%, #f00 80%);
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 1;
+}
+
+@keyframes pulse {
+    0% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.1); }
+    100% { transform: translateX(-50%) scale(1); }
+}
+
+/* Responsive Layout */
 @media (max-width: 768px) {
     .frame {
-        grid-template-columns: 1fr; /* Stacks bingo board and sidebar */
-    }
-
-    .bingo-board {
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: repeat(5, 1fr);
+        grid-template-columns: 1fr;
     }
 
     .sidebar {
-        grid-row: 2 / 3; /* Sidebar moves below bingo board */
+        grid-row: 2 / 3;
     }
 
     .pattern-box {

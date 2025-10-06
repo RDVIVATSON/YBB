@@ -1,6 +1,6 @@
 let calledNumbers = [];
 let lastClickedButton = null;
-let primeRibBall = null; // Stores first number clicked after reset
+let primeRibBall = null;
 
 function createBingoBoard() {
     const columns = ['B', 'I', 'N', 'G', 'O'];
@@ -29,216 +29,121 @@ function createBingoBoard() {
 function displayPattern() {
     const patternSelect = document.getElementById("patterns");
     const patternImage = document.getElementById("pattern-image");
-
-    // Map pattern names to image file paths (all lowercase)
-    const patternMap = {
-        "regular4c": "images/regular4c.gif",
-        "fourcorners": "images/fourcorners.gif",
-        "blackout": "images/blackout.gif",
-        "airplane": "images/airplane.gif",
-        "alien": "images/alien.gif",
-		"ambersand": "images/ambersand.gif",
-        "ant": "images/ant.gif",
-        "appletree": "images/appletree.gif",
-		"astrisk": "images/astrisk.gif",
-        "bag": "images/bag.gif",
-        "barbell": "images/barbell.gif",
-        "baseballdiamond": "images/baseballdiamond.gif",
-        "basket": "images/basket.gif",
-        "bib": "images/bib.gif",
-        "bird": "images/bird.gif",
-        "block9": "images/block9.gif",
-        "bowtie": "images/bowtie.gif",
-        "campertrailer": "images/campertrailer.gif",
-        "candlestick": "images/candlestick.gif",
-        "chair": "images/Chair.gif",
-        "car": "images/car.gif",
-        "champaineglass": "images/champaineglass.gif",
-        "checkmark": "images/checkmark.gif",
-        "crazyc": "images/crazyc.gif",
-        "crazyh": "images/crazyh.gif",
-        "crazyt": "images/crazyt.gif",
-        "crazyl": "images/crazyl.gif",
-        "crown": "images/crown.gif",
-        "daisy": "images/daisy.gif",
-        "dog": "images/dog.gif",
-        "dollarsign": "images/dollarsign.gif",
-        "doublel": "images/doublel.gif",
-        "doubleplus": "images/doubleplus.gif",
-        "duck": "images/duck.gif",
-		"eyeball": "images/eyeball.gif",
-		"fireplace": "images/fireplace.gif",
-        "fishhook": "images/fishhook.gif",
-        "flag": "images/flag.gif",
-		"foursquare": "images/foursquare.gif",
-        "fox": "images/fox.gif",
-		"fullmoon": "images/fullmoon.gif",
-        "giftbag": "images/giftbag.gif",
-		"grapes": "images/grape.gif",
-		"halfmoon": "images/halfmoon.gif",
-        "hat": "images/hat.gif",
-		"headstone": "images/headstone.gif",
-        "hi": "images/hi.gif",
-		"hotcocoa": "images/hotcocoa.gif",
-        "house": "images/house.gif",
-        "icicles": "images/icicles.gif",
-        "ladder": "images/ladder.gif",
-        "largediamond": "images/largediamond.gif",
-		"lettera": "images/lettera.gif",
-		"letterb": "images/letterb.gif",
-		"letterc": "images/letterc.gif",
-		"letterd": "images/letterd.gif",
-		"lettere": "images/lettere.gif",
-		"letterf": "images/letterf.gif",
-		"letterg": "images/letterg.gif",
-		"letterh": "images/letterh.gif",
-		"letteri": "images/letteri.gif",
-		"letterj": "images/letterj.gif",
-		"letterk": "images/letterk.gif",
-		"letterl": "images/letterl.gif",
-		"letterm": "images/letterm.gif",
-		"lettern": "images/lettern.gif",
-		"lettero": "images/lettero.gif",
-		"letterp": "images/letterp.gif",
-		"letterq": "images/letterq.gif",
-		"letterr": "images/letterr.gif",
-		"letters": "images/letters.gif",
-		"lettert": "images/lettert.gif",
-		"letteru": "images/letteru.gif",
-		"letterv": "images/letterv.gif",
-		"letterw": "images/letterw.gif",
-		"letterx": "images/letterx.gif",
-		"lettery": "images/lettery.gif",
-		"letterz": "images/letterz.gif",
-        "light": "images/light.gif",
-        "lobster": "images/lobster.gif",
-        "loveletter": "images/loveletter.gif",
-        "mapleleaf": "images/mapleleaf.gif",
-        "motorcycle": "images/motorcycle.gif",
-        "mask": "images/mask.gif",
-        "mushroom": "images/mushroom.gif",
-		"musicnote": "images/musicnote.gif",
-		"number0": "images/number0.gif",
-		"number1": "images/number1.gif",
-		"number2": "images/number2.gif",
-		"number3": "images/number3.gif",
-		"number4": "images/number4.gif",
-		"number5": "images/number5.gif",
-		"number6": "images/number6.gif",
-		"number7": "images/number7.gif",
-		"number8": "images/number8.gif",
-		"number9": "images/number9.gif",
-		"number10": "images/number10.gif",
-		"number11": "images/number11.gif",
-		"number12": "images/number12.gif",
-		"number13": "images/number13.gif",
-		"number14": "images/number14.gif",
-		"number15": "images/number15.gif",
-		"number16": "images/number16.gif",
-		"number17": "images/number17.gif",
-		"number18": "images/number18.gif",
-		"number19": "images/number19.gif",
-		"owl": "images/owl.gif",
-        "paraderoute": "images/paradeRoute.gif",
-        "pin": "images/pin.gif",
-        "pinwheel": "images/pinwheel.gif",
-		"rainboat": "images/rainboat.gif",
-        "raindrop": "images/raindrop.gif",
-		"rake": "images/rake.gif",
-        "readytokiss": "images/readytokiss.gif",
-        "rectangle": "images/rectangle.gif",
-		"reindeer": "images/reindeer.gif",
-		"sailboat": "images/sailboat.gif",
-        "shorts": "images/shorts.gif",
-		"shark": "images/shark.gif",
-		"sign": "images/sign.gif",
-		"skiis": "images/skiis.gif",
-		"skull": "images/skull.gif",
-        "smallc": "images/smallc.gif",
-        "smalldiamond": "images/smalldiamond.gif",
-        "smalle": "images/smalle.gif",
-        "snorkel": "images/snorkel.gif",
-		"snowmobile": "images/snowmobile.gif",
-		"spiderweb": "images/spiderweb.gif",
-		"sweater": "images/sweater.gif",
-        "table": "images/table.gif",
-        "thunderbird": "images/thunderbird.gif",
-        "tictactoe": "images/tictactoe.gif",
-        "topv": "images/topv.gif",
-        "torch": "images/torch.gif",
-		"tornado": "images/tornado.gif",
-        "train": "images/train.gif",
-        "trophy": "images/trophy.gif",
-        "tulip": "images/tulip.gif",
-        "umbrella": "images/umbrella.gif",
-        "upsidedownt": "images/upsidedownt.gif",
-		"vampire": "images/vampire.gif",
-		"wasp": "images/wasp.gif",
-        "windmill": "images/windmill.gif",
-        "windowpane": "images/windowpane.gif",
-        "windowshade": "images/windowshade.gif",
-        "wineglass": "images/wineglass.gif",
-        "worm": "images/worm.gif"
-    };
-
-    const selectedPattern = patternSelect.value;
-    patternImage.src = patternMap[selectedPattern] || ""; // Set image source
-    patternImage.style.display = patternMap[selectedPattern] ? "block" : "none"; // Show image only if it exists
+    const selectedPattern = patternSelect.value.toLowerCase();
+    patternImage.src = patternMap[selectedPattern] || "";
+    patternImage.style.display = patternMap[selectedPattern] ? "block" : "none";
 }
 
-
 function callNumber(column, number) {
-    const calledNumber = column + number;
     const button = document.querySelector(`button[data-column="${column}"][data-number="${number}"]`);
+    if (!button) return;
 
-    if (button) {
-        // **Prime Rib Ball Selection** (Only updates once after reset)
-        if (!primeRibBall) {
-            primeRibBall = button;
-            document.getElementById("primeRibBall").textContent = "Prime Rib Ball: " + calledNumber;
-            button.classList.add('prime-rib'); // Adds yellow border styling
-            return; // Do not toggle the Prime Rib Ball initially
-        }
+    const calledNumber = column + number;
 
-        button.classList.toggle('called');
+    // Prime Rib Ball logic
+    if (!primeRibBall) {
+        primeRibBall = button;
+        document.getElementById("primeRibBall").textContent = "Prime Rib Ball: " + calledNumber;
+        button.classList.add('prime-rib');
+        return;
+    }
 
-        // Stop previous button from flashing and make it solid red
-        if (lastClickedButton && lastClickedButton !== primeRibBall) {
-            lastClickedButton.classList.remove('flashing');
-            lastClickedButton.style.backgroundColor = 'red'; // Solid red
-            lastClickedButton.style.color = 'white';
-        }
+    // Stop all flashing effects
+    document.querySelectorAll('.flashing').forEach(btn => {
+        btn.classList.remove('flashing');
+        btn.style.backgroundColor = 'red';
+        btn.style.color = 'white';
+    });
 
-        // If Prime Rib Ball is clicked again later, update the last number called and allow it to flash
-        if (button === primeRibBall) {
+    button.classList.toggle('called');
+
+    if (lastClickedButton && lastClickedButton !== primeRibBall) {
+        lastClickedButton.classList.remove('flashing');
+        lastClickedButton.style.backgroundColor = 'red';
+        lastClickedButton.style.color = 'white';
+    }
+
+    if (button === primeRibBall) {
+        button.classList.add('flashing');
+        flashEffect(button);
+        lastClickedButton = button;
+    } else {
+        if (button.classList.contains('called')) {
             button.classList.add('flashing');
             flashEffect(button);
+            calledNumbers.push({ column, number, button });
             lastClickedButton = button;
-        } else {
-            // Toggle the flashing effect for the new last number called
-            if (button.classList.contains('called')) {
-                button.classList.add('flashing');
-                flashEffect(button);
-                calledNumbers.push(calledNumber);
-                lastClickedButton = button;
-            } else {
-                button.classList.remove('flashing');
-                button.style.backgroundColor = '';
-                button.style.color = '';
-                calledNumbers = calledNumbers.filter(num => num !== calledNumber);
-                lastClickedButton = calledNumbers.length > 0 
-                    ? document.querySelector(`button[data-column="${calledNumbers[calledNumbers.length - 1]}"]`) 
-                    : null;
-                
-                if (lastClickedButton) {
-                    lastClickedButton.classList.add('flashing');
-                    flashEffect(lastClickedButton);
+
+            // Wildcard check
+            if (calledNumbers.length >= 3) {
+                const lastThree = calledNumbers.slice(-3);
+                const lastDigits = lastThree.map(n => n.number % 10);
+                const allSame = lastDigits.every(d => d === lastDigits[0]);
+                if (allSame) {
+                    triggerWildcard(lastDigits[0]);
                 }
             }
-        }
 
-        updateLastNumber();
+        } else {
+            button.classList.remove('flashing');
+            button.style.backgroundColor = '';
+            button.style.color = '';
+            calledNumbers = calledNumbers.filter(obj => obj.number !== number || obj.column !== column);
+
+            const last = calledNumbers[calledNumbers.length - 1];
+            lastClickedButton = last
+                ? document.querySelector(`button[data-column="${last.column}"][data-number="${last.number}"]`)
+                : null;
+
+            if (lastClickedButton) {
+                lastClickedButton.classList.add('flashing');
+                flashEffect(lastClickedButton);
+            }
+        }
     }
+
+    updateLastNumber();
+    updateBallCounter();
+}
+
+function triggerWildcard(digit) {
+    const banner = document.createElement('div');
+    banner.textContent = `Wildcard Activated: All ${digit}'s Called!`;
+    banner.className = 'wildcard-banner';
+    document.body.appendChild(banner);
+
+    setTimeout(() => banner.remove(), 5000);
+
+    const spray = document.createElement('div');
+    spray.className = 'graffiti-spray';
+    document.body.appendChild(spray);
+
+    anime({
+        targets: spray,
+        scale: [0, 1.5],
+        opacity: [1, 0],
+        duration: 1000,
+        easing: 'easeOutExpo',
+        complete: () => spray.remove()
+    });
+
+    document.querySelectorAll('.bingo-column button').forEach(button => {
+        const numStr = button.getAttribute('data-number');
+        if (!numStr) return;
+        const num = parseInt(numStr);
+        if (!isNaN(num) && num % 10 === digit && !button.classList.contains('called')) {
+            button.classList.add('called', 'flashing');
+            flashEffect(button);
+            calledNumbers.push({
+                column: button.getAttribute('data-column'),
+                number: num,
+                button: button
+            });
+        }
+    });
+
+    updateLastNumber();
+    updateBallCounter();
 }
 
 function flashEffect(button) {
@@ -259,7 +164,7 @@ function resetBoard() {
     if (!confirmReset) return;
 
     calledNumbers = [];
-    primeRibBall = null; // Reset Prime Rib Ball
+    primeRibBall = null;
     document.getElementById("primeRibBall").textContent = "Prime Rib Ball: None";
 
     document.querySelectorAll('.bingo-column button').forEach(button => {
@@ -270,14 +175,23 @@ function resetBoard() {
 
     lastClickedButton = null;
     updateLastNumber();
+    updateBallCounter();
 }
 
 function updateLastNumber() {
     const lastNumberDiv = document.getElementById('lastNumber');
-    lastNumberDiv.textContent = calledNumbers.length > 0
-        ? 'Last number: ' + calledNumbers[calledNumbers.length - 1]
+    const last = calledNumbers[calledNumbers.length - 1];
+    lastNumberDiv.textContent = last
+        ? 'Last number: ' + last.column + last.number
         : 'Last number called: None';
 }
 
-// Initialize the board when the script loads
+function updateBallCounter() {
+    const counterDiv = document.getElementById('ballCounter');
+    const count = calledNumbers.filter(obj => obj.button !== primeRibBall).length;
+    counterDiv.textContent = `Balls Called: ${count}`;
+}
+
+// Initialize the board
 createBingoBoard();
+
