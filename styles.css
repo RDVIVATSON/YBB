@@ -141,7 +141,7 @@ h1 {
 
 /* Last Number & Reset Button */
 .last-number {
-    font-size: 2.5vw;
+    font-size: 2.2vw;
     padding: 10px;
     font-weight: bold;
     text-align: center;
@@ -251,4 +251,5 @@ h1 {
     button.reset {
         font-size: 1vw;
     }
+
 }
