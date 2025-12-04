@@ -1,6 +1,5 @@
 let calledNumbers = [];
 let lastClickedButton = null;
-let primeRibBall = null;
 
 function createBingoBoard() {
     const columns = ['B', 'I', 'N', 'G', 'O'];
@@ -31,10 +30,8 @@ function displayPattern() {
     const patternImage = document.getElementById("pattern-image");
     const selectedPattern = patternSelect.value;
 
-    // Dynamically build the image path
     const imagePath = `images/${selectedPattern}.gif`;
 
-    // Check if the image exists by attempting to load it
     patternImage.onerror = () => {
         patternImage.style.display = "none";
     };
@@ -45,20 +42,11 @@ function displayPattern() {
     patternImage.src = imagePath;
 }
 
-
 function callNumber(column, number) {
     const button = document.querySelector(`button[data-column="${column}"][data-number="${number}"]`);
     if (!button) return;
 
     const calledNumber = column + number;
-
-    // Prime Rib Ball logic
-    if (!primeRibBall) {
-        primeRibBall = button;
-        document.getElementById("primeRibBall").textContent = "Prime Rib Ball: " + calledNumber;
-        button.classList.add('prime-rib');
-        return;
-    }
 
     // Stop all flashing effects
     document.querySelectorAll('.flashing').forEach(btn => {
@@ -67,50 +55,46 @@ function callNumber(column, number) {
         btn.style.color = 'white';
     });
 
+    // Toggle called state
     button.classList.toggle('called');
 
-    if (lastClickedButton && lastClickedButton !== primeRibBall) {
+    // Reset previous lastClickedButton
+    if (lastClickedButton && lastClickedButton !== button) {
         lastClickedButton.classList.remove('flashing');
         lastClickedButton.style.backgroundColor = 'red';
         lastClickedButton.style.color = 'white';
     }
 
-    if (button === primeRibBall) {
+    // Handle current button
+    if (button.classList.contains('called')) {
         button.classList.add('flashing');
         flashEffect(button);
+        calledNumbers.push({ column, number, button });
         lastClickedButton = button;
+
+        // Wildcard check
+        if (calledNumbers.length >= 3) {
+            const lastThree = calledNumbers.slice(-3);
+            const lastDigits = lastThree.map(n => n.number % 10);
+            const allSame = lastDigits.every(d => d === lastDigits[0]);
+            if (allSame) {
+                triggerWildcard(lastDigits[0]);
+            }
+        }
     } else {
-        if (button.classList.contains('called')) {
-            button.classList.add('flashing');
-            flashEffect(button);
-            calledNumbers.push({ column, number, button });
-            lastClickedButton = button;
+        button.classList.remove('flashing');
+        button.style.backgroundColor = '';
+        button.style.color = '';
+        calledNumbers = calledNumbers.filter(obj => obj.number !== number || obj.column !== column);
 
-            // Wildcard check
-            if (calledNumbers.length >= 3) {
-                const lastThree = calledNumbers.slice(-3);
-                const lastDigits = lastThree.map(n => n.number % 10);
-                const allSame = lastDigits.every(d => d === lastDigits[0]);
-                if (allSame) {
-                    triggerWildcard(lastDigits[0]);
-                }
-            }
+        const last = calledNumbers[calledNumbers.length - 1];
+        lastClickedButton = last
+            ? document.querySelector(`button[data-column="${last.column}"][data-number="${last.number}"]`)
+            : null;
 
-        } else {
-            button.classList.remove('flashing');
-            button.style.backgroundColor = '';
-            button.style.color = '';
-            calledNumbers = calledNumbers.filter(obj => obj.number !== number || obj.column !== column);
-
-            const last = calledNumbers[calledNumbers.length - 1];
-            lastClickedButton = last
-                ? document.querySelector(`button[data-column="${last.column}"][data-number="${last.number}"]`)
-                : null;
-
-            if (lastClickedButton) {
-                lastClickedButton.classList.add('flashing');
-                flashEffect(lastClickedButton);
-            }
+        if (lastClickedButton) {
+            lastClickedButton.classList.add('flashing');
+            flashEffect(lastClickedButton);
         }
     }
 
@@ -120,11 +104,11 @@ function callNumber(column, number) {
 
 function triggerWildcard(digit) {
     const banner = document.createElement('div');
-    banner.textContent = `Wildcard Activated: All ${digit}'s Called!`;
+    banner.textContent = `Wildcard Activated: 3 ${digit}'s in a row. mark off all remaining ${digit}'s!`;
     banner.className = 'wildcard-banner';
     document.body.appendChild(banner);
 
-    setTimeout(() => banner.remove(), 5000);
+    setTimeout(() => banner.remove(), 15000);
 
     const spray = document.createElement('div');
     spray.className = 'graffiti-spray';
@@ -176,13 +160,11 @@ function resetBoard() {
     if (!confirmReset) return;
 
     calledNumbers = [];
-    primeRibBall = null;
-    document.getElementById("primeRibBall").textContent = "Prime Rib Ball: None";
 
     document.querySelectorAll('.bingo-column button').forEach(button => {
-        button.classList.remove('called', 'flashing', 'prime-rib');
+        button.classList.remove('called', 'flashing');
         button.style.backgroundColor = '';
-        button.style.color = '';
+        button.style.color = ''; 
     });
 
     lastClickedButton = null;
@@ -200,7 +182,7 @@ function updateLastNumber() {
 
 function updateBallCounter() {
     const counterDiv = document.getElementById('ballCounter');
-    const count = calledNumbers.filter(obj => obj.button !== primeRibBall).length;
+    const count = calledNumbers.length;
     counterDiv.textContent = `Balls Called: ${count}`;
 }
 

@@ -140,19 +140,41 @@ h1 {
     object-fit: contain;   /* scales image inside fixed box */
 }
 
+
+
+
+
 /* Last Number & Reset Button */
-.last-number {
-    font-size: 2.2vw;
-    padding: 10px;
+.last-number,
+.static-section {
+    font-size: clamp(18px, 2.5vw, 40px); /* same scaling */
+    padding: 5px;
     font-weight: bold;
     text-align: center;
 }
+.static-section {
+    font-size: clamp(18px, 2.5vw, 28px);
+    padding: 5;
+    font-weight: bold;
+    text-align: center;
+}
+
+.static-section img.beer-image {
+    max-width: 375px;   /* adjust size */
+    height: auto;
+    margin-top: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 
 .bottom-controls {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 100%;
+    width: 90%;
     padding: 10px;
     gap: 10px;
 }
@@ -171,17 +193,24 @@ h1 {
     width: auto;
     flex-shrink: 0;
 }
-/* Prime Rib Ball Section */
+/* Prime Rib Ball Section 
 .prime-rib-section {
-    font-size: 2.5vw;
+    font-size: 2.2vw;
     padding: 10px;
     border: 2px solid gold;
     text-align: center;
     background-color: transparent;
     font-weight: bold;
     border-radius: 10px;
-    width: 50%;
+    width: 50%; */
 }
+/*.static-section {
+    font-size: 2.5vw;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+*/
 
 /* Flashing Effect */
 .flashing {
@@ -252,6 +281,4 @@ h1 {
     button.reset {
         font-size: 1vw;
     }
-
 }
-
