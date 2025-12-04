@@ -160,7 +160,7 @@ h1 {
 }
 
 .static-section img.beer-image {
-    max-width: 175px;   /* adjust size */
+    max-width: 375px;   /* adjust size */
     height: auto;
     margin-top: 5px;
     display: block;
@@ -283,3 +283,4 @@ h1 {
     }
 
 }
+
