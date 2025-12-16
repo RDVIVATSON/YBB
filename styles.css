@@ -121,8 +121,8 @@ h1 {
 
 /* Pattern Box */
 .pattern-box {
-    width: 430px;          /* fixed width */
-    height: 430px;         /* fixed height */
+    width: 410px;          /* fixed width */
+    height: 410px;         /* fixed height */
     border: 1px solid #000;
     display: flex;
     justify-content: center;
@@ -283,6 +283,7 @@ h1 {
     }
 
 }
+
 
 
 
